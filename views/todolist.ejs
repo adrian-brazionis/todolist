@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="box" id="heading">   
+        <h1><%= listName %></h1>
+        <h2>To Do List</h2>
+    </div>
+
+    <div class="box">
+        <% for (let i=0; i<newItems.length; i++) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newItems[i] %></p>
+            </div>    
+       <% }  %>
+   
+        <form class="item" action="/" method="post">
+         <input type="text" name="task" placeholder="New Task" autocomplete="off">
+         <button type="submit" name="list" value= <%= listName %>>+</button>      <%# agregamos el value para luego usar el req.body.list para saber en que lista agregamos esa tarea. Usa el list del name y en value va el nombre de lista. %> 
+        </form>
+    </div>  
+   
+</body>
+</html>
